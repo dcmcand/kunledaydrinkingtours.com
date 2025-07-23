@@ -1,0 +1,30 @@
+{
+  "name": "kunle-day-drinking-tours",
+  "version": "1.0.0",
+  "description": "Static website for Kunle Day Drinking Tours in Granada, Spain",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server -D --buildDrafts --buildFuture",
+    "build": "hugo --gc --minify",
+    "clean": "rm -rf public",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/kunledaydrinkingtours.com.git"
+  },
+  "keywords": [
+    "hugo",
+    "static-site",
+    "granada",
+    "tours",
+    "spain",
+    "tapas"
+  ],
+  "author": "Kunle Barker",
+  "license": "BSD-3-Clause",
+  "devDependencies": {},
+  "engines": {
+    "hugo": ">=0.121.0"
+  }
+}

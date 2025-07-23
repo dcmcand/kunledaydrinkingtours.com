@@ -1,0 +1,256 @@
+{{ define "main" }}
+<!-- Booking Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="display-4">{{ .Title }}</h1>
+        <p class="lead">Choose your perfect Granada drinking tour experience</p>
+    </div>
+</section>
+
+<!-- Booking Section -->
+<section class="py-5">
+    <div class="container">
+        <!-- Tour Selection -->
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="card tour-card h-100">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3" class="card-img-top" alt="Classic Tapas Tour">
+                    <div class="card-body">
+                        <h4 class="card-title">Classic Tapas & Wine Tour</h4>
+                        <p class="card-text">Traditional Granada tapas experience with local wines and authentic bars.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-clock text-warning"></i> 3 hours</li>
+                            <li><i class="fas fa-users text-warning"></i> Max 8 people</li>
+                            <li><i class="fas fa-calendar text-warning"></i> Daily 1:00 PM & 6:00 PM</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h4 text-warning mb-0">€45</span>
+                            <button class="btn btn-warning" onclick="selectTour('classic')">Select Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card tour-card h-100">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3" class="card-img-top" alt="Craft Beer Tour">
+                    <div class="card-body">
+                        <h4 class="card-title">Craft Beer & Modern Tapas</h4>
+                        <p class="card-text">Explore Granada's craft beer scene with modern tapas and trendy spots.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-clock text-warning"></i> 3 hours</li>
+                            <li><i class="fas fa-users text-warning"></i> Max 8 people</li>
+                            <li><i class="fas fa-calendar text-warning"></i> Thu-Sat 5:00 PM</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h4 text-warning mb-0">€50</span>
+                            <button class="btn btn-warning" onclick="selectTour('craft')">Select Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card tour-card h-100">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3" class="card-img-top" alt="Sunset Tour">
+                    <div class="card-body">
+                        <h4 class="card-title">Sunset Terrace Tour</h4>
+                        <p class="card-text">Rooftop bars with stunning Alhambra views and premium cocktails.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-clock text-warning"></i> 3.5 hours</li>
+                            <li><i class="fas fa-users text-warning"></i> Max 6 people</li>
+                            <li><i class="fas fa-calendar text-warning"></i> Daily at sunset</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h4 text-warning mb-0">€55</span>
+                            <button class="btn btn-warning" onclick="selectTour('sunset')">Select Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card tour-card h-100">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3" class="card-img-top" alt="Private Tour">
+                    <div class="card-body">
+                        <h4 class="card-title">Private Custom Tour</h4>
+                        <p class="card-text">Design your perfect Granada experience with flexible timing and personalized service.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-clock text-warning"></i> Flexible</li>
+                            <li><i class="fas fa-users text-warning"></i> Up to 10 people</li>
+                            <li><i class="fas fa-calendar text-warning"></i> By arrangement</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h4 text-warning mb-0">From €200</span>
+                            <button class="btn btn-warning" onclick="selectTour('private')">Select Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="mb-0">Complete Your Booking</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="bookingForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Selected Tour *</label>
+                                    <input type="text" class="form-control" id="selectedTour" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Number of People *</label>
+                                    <select class="form-select" id="numPeople" required>
+                                        <option value="">Select...</option>
+                                        <option value="1">1 person</option>
+                                        <option value="2">2 people</option>
+                                        <option value="3">3 people</option>
+                                        <option value="4">4 people</option>
+                                        <option value="5">5 people</option>
+                                        <option value="6">6 people</option>
+                                        <option value="7">7 people</option>
+                                        <option value="8">8 people</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Preferred Date *</label>
+                                    <input type="date" class="form-control" id="tourDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Preferred Time *</label>
+                                    <select class="form-select" id="tourTime" required>
+                                        <option value="">Select tour first...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Your Name *</label>
+                                    <input type="text" class="form-control" id="customerName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="customerEmail" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="customerPhone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Country</label>
+                                    <input type="text" class="form-control" id="customerCountry">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Special Requests or Dietary Requirements</label>
+                                <textarea class="form-control" id="specialRequests" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="h4">Total: <span id="totalPrice" class="text-warning">€0</span></div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <small class="text-muted">Payment will be processed securely</small>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-warning btn-lg px-5">Book Tour Now</button>
+                                <p class="mt-2 small text-muted">
+                                    By booking, you agree to our terms and conditions.<br>
+                                    Free cancellation up to 48 hours before tour.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Tour data
+const tours = {
+    classic: {
+        name: 'Classic Tapas & Wine Tour',
+        price: 45,
+        times: ['1:00 PM', '6:00 PM']
+    },
+    craft: {
+        name: 'Craft Beer & Modern Tapas',
+        price: 50,
+        times: ['5:00 PM']
+    },
+    sunset: {
+        name: 'Sunset Terrace Tour',
+        price: 55,
+        times: ['Sunset time (varies by season)']
+    },
+    private: {
+        name: 'Private Custom Tour',
+        price: 200,
+        times: ['By arrangement']
+    }
+};
+
+function selectTour(tourType) {
+    const tour = tours[tourType];
+    document.getElementById('selectedTour').value = tour.name;
+    
+    // Update time options
+    const timeSelect = document.getElementById('tourTime');
+    timeSelect.innerHTML = '<option value="">Select time...</option>';
+    tour.times.forEach(time => {
+        const option = document.createElement('option');
+        option.value = time;
+        option.textContent = time;
+        timeSelect.appendChild(option);
+    });
+    
+    updatePrice();
+}
+
+function updatePrice() {
+    const selectedTour = document.getElementById('selectedTour').value;
+    const numPeople = parseInt(document.getElementById('numPeople').value) || 0;
+    
+    let tourPrice = 0;
+    for (const [key, tour] of Object.entries(tours)) {
+        if (tour.name === selectedTour) {
+            tourPrice = tour.price;
+            break;
+        }
+    }
+    
+    const total = tourPrice * numPeople;
+    document.getElementById('totalPrice').textContent = '€' + total;
+}
+
+// Update price when number of people changes
+document.getElementById('numPeople').addEventListener('change', updatePrice);
+
+// Form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your booking request! This is a demo - in a real site, this would process your booking and payment.');
+});
+
+// Set minimum date to today
+document.getElementById('tourDate').min = new Date().toISOString().split('T')[0];
+</script>
+{{ end }}

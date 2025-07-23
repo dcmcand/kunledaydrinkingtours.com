@@ -1,0 +1,33 @@
+baseURL = 'https://kunledaydrinkingtours.com/'
+languageCode = 'en-us'
+title = 'Kunle Day Drinking Tours'
+theme = 'granada-tours'
+
+[params]
+  description = "Discover Granada's best bars and tapas with Kunle Barker, your charismatic English guide"
+  author = "Kunle Barker"
+  email = "info@kunledaydrinkingtours.com"
+  phone = "+34 600 123 456"
+  location = "Granada, Spain"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Tours"
+    url = "/tours/"
+    weight = 2
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "Book Now"
+    url = "/booking/"
+    weight = 4
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 5
